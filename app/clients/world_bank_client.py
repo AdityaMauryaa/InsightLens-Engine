@@ -27,7 +27,12 @@ class WorldBankClient:
             params["date"] = f"{start_year}:{end_year}"
 
         async with httpx.AsyncClient(timeout=self.timeout) as client:
-            response = await client.get(url, params=params)
-            response.raise_for_status()
-            
-            return response.json()
+            try:
+                response = await client.get(url, params=params)
+                response.raise_for_status()
+                return response.json()
+
+            except httpx.ReadTimeout:
+                raise
+            except Exception as e:
+                raise
