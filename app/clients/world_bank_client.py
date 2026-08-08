@@ -22,7 +22,6 @@ class WorldBankClient:
             "format": "json",
             "per_page": 100,
         }
-        print(url)
         if start_year and end_year:
             params["date"] = f"{start_year}:{end_year}"
 

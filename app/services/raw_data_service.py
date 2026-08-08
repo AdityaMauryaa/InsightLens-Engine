@@ -31,9 +31,6 @@ class RawDataService:
         self,
         response: list,
     ) -> IndicatorSeries:
-        """
-        Convert the World Bank API response into an IndicatorSeries.
-        """
 
         if not isinstance(response, list):
             raise ValueError("Invalid World Bank response.")

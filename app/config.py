@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     groq_model: str
 
     request_timeout: int = 30
+    allowed_origins: str = "http://localhost:3000"
 
     model_config = SettingsConfigDict(
         env_file=".env",
